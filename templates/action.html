@@ -2,25 +2,42 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>تنفيذ الإجراء</title>
+    <title>خطوات التنفيذ | عدسة أبشر</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>تنفيذ الإجراء</h1>
+        <h1 style="color: var(--absher-green);">خطة العمل المقترحة</h1>
+        <p class="subtitle">بناءً على تحليل الوثيقة، إليك الخطوات الموصى بها:</p>
 
         <div class="result-box">
-            <p>جاري توجيهك للخدمة المناسبة في أبشر بناءً على الإشعار المقروء.</p>
-            <ul>
-                <li>1. الدخول إلى منصة أبشر.</li>
-                <li>2. اختيار الخدمة المناسبة (مثل: تحديث بيانات الهوية).</li>
-                <li>3. تنفيذ الإجراء المطلوب قبل انتهاء المهلة.</li>
-            </ul>
+            <div id="dynamic-content">
+                <p><strong>الخدمة المستهدفة:</strong> <span id="service-name">...</span></p>
+                <p><strong>الإجراء المطلوب:</strong> <span id="action-desc">...</span></p>
+            </div>
+            
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 15px 0;">
+            
+            <div style="font-size: 0.9rem; color: #555;">
+                <p>1. توجه لموقع أبشر الرسمي.</p>
+                <p>2. سجل الدخول عبر النفاذ الوطني.</p>
+                <p>3. ابحث عن القسم المذكور أعلاه.</p>
+            </div>
 
-            <a href="/" class="btn">الرجوع للصفحة الرئيسية</a>
+            <a href="https://www.absher.sa" target="_blank" class="btn">الانتقال للمنصة الرسمية</a>
+            <a href="/" class="btn" style="background: white; color: var(--absher-green); border: 1px solid var(--absher-green); margin-top: 10px;">تحليل ملف آخر</a>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rawData = localStorage.getItem('absherAnalysis');
+            if (rawData) {
+                const data = JSON.parse(rawData);
+                document.getElementById('service-name').innerText = data.next_step || "خدمات الأفراد";
+                document.getElementById('action-desc').innerText = data.required_action || "مراجعة الطلب";
+            }
+        });
+    </script>
 </body>
 </html>
-
-

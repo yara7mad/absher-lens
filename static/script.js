@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const fileInput = document.getElementById("imageUpload");
     const resultDiv = document.getElementById("result");
 
@@ -7,36 +6,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = e.target.files[0];
         if (!file) return;
 
+        resultDiv.innerHTML = `<div class="loader"></div><p>جاري تحليل الذكاء الاصطناعي...</p>`;
+
         const formData = new FormData();
         formData.append("image", file);
 
-        resultDiv.innerHTML = "<p>جاري تحليل المستند...</p>";
-
         try {
-            const res = await fetch("/analyze", {
-                method: "POST",
-                body: formData
-            });
-
+            const res = await fetch("/analyze", { method: "POST", body: formData });
             const data = await res.json();
-            console.log("SERVER:", data);
+            const a = data.analysis || data;
 
-            const a = data.analysis || data; // احتياط
+            // SAVE DATA for the next page
+            localStorage.setItem('absherAnalysis', JSON.stringify(a));
 
             resultDiv.innerHTML = `
                 <div class="result-box">
-                    <h3>${a.type || "إشعار"}</h3>
-                    <p><strong>المطلوب:</strong> ${a.required_action || "-"}</p>
-                    <p><strong>المهلة:</strong> ${a.deadline || "-"}</p>
-                    <p><strong>الإجراء:</strong> ${a.next_step || "-"}</p>
-
-                    <a href="/action" class="btn">نفّذ الإجراء الآن</a>
+                    <h3 style="color:var(--primary)">${a.type}</h3>
+                    <p><strong>المطلوب:</strong> ${a.required_action}</p>
+                    <a href="/action" class="btn">عرض خطة التنفيذ</a>
                 </div>
             `;
         } catch (err) {
-            console.error(err);
-            resultDiv.innerHTML = "<p>حدث خطأ أثناء التحليل.</p>";
+            resultDiv.innerHTML = "<p>حدث خطأ، يرجى المحاولة مرة أخرى</p>";
         }
     });
-
 });

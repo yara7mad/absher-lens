@@ -1,5 +1,19 @@
-# absher-lens
-Absher Lens is an AI-powered OCR system that analyzes Saudi government notifications and extracts key actions, deadlines, and instructions in real time. Built using Flask and OpenAI Vision models.
-After analyzing the uploaded notification, the system provides a dedicated "Proceed with Action" button.  
-This feature guides the user to a follow-up page that outlines the required steps for completing the related government service, ensuring a smooth and intuitive user flow.
+# AbsherLens
+**AI-Powered Government Document Intelligence**
 
+AbsherLens is a smart feature designed for the **Absher** ecosystem. It uses Vision AI to transform complex official notifications into clear, actionable steps for users.
+
+##  Key Features
+- **OCR Analysis:** Analyzes photos/screenshots of official notices using GPT-4o-mini.
+- **Actionable Roadmaps:** Extracts document types, deadlines, and provides a direct step-by-step execution plan.
+- **Premium UI:** Modern Dark Mode interface built with an RTL-first (Arabic) approach.
+
+## Tech Stack
+- **Backend:** Flask (Python)
+- **AI:** OpenAI GPT-4o-mini API
+- **Frontend:** HTML5, CSS3 (Dark Mode), JavaScript
+
+## 🇸🇦 Vision 2030 Impact
+Aligned with Saudi Arabia's digital transformation goals, this tool simplifies citizen interaction with e-government services, reducing cognitive load and ensuring timely compliance with official requirements.
+
+**Developed by Yara Abu Ghazalah** 
