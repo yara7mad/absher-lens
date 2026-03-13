@@ -16,4 +16,9 @@ AbsherLens is a smart feature designed for the **Absher** ecosystem. It uses Vis
 ## 🇸🇦 Vision 2030 Impact
 Aligned with Saudi Arabia's digital transformation goals, this tool simplifies citizen interaction with e-government services, reducing cognitive load and ensuring timely compliance with official requirements.
 
+## Live Demo on YouTube
+[![AbsherLens Demo](https://img.youtube.com/vi/lLxGN955FIQ/maxresdefault.jpg)](https://youtu.be/lLxGN955FIQ)
+
+*Click the image above to watch the feature in action.*
+
 **Developed by Yara Abu Ghazalah** 
